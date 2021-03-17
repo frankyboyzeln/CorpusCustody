@@ -17,3 +17,9 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Offline SPDX obligation table for common identifiers
   (`corpuscustody.spdx`), covering MIT, Apache-2.0, BSD-3-Clause, GPL-2.0,
   GPL-3.0, LGPL, MPL-2.0, CC-BY-*, and CC0.
+- Pairwise and set-level compatibility resolution against a declared purpose
+  (`internal`, `commercial`, `redistribute`) in `corpuscustody.compat`.
+- Gate that refuses when any record's provenance is unknown and writes a
+  cleared manifest only on pass (`corpuscustody.gate`).
+- CLI subcommands: `resolve`, `gate`, `report`, `version`
+  (`corpuscustody.cli`).
