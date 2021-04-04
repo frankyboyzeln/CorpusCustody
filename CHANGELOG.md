@@ -48,3 +48,10 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   SPDX table makes the gate refuse with a distinct `UNKNOWN_LICENSE` finding.
 
 ## [0.3.0] - 2022-09-04
+
+### Added
+- Set-level resolution: the gate now evaluates the whole manifest, not
+  record pairs, so three compatible records that pairwise pass but jointly
+  conflict are caught.
+
+## [0.2.0] - 2021-12-06
