@@ -52,3 +52,24 @@ records that blocked it, and why.
 
 Install as an editable package:
 
+```
+pip install -e .
+```
+
+Or run without installing, from the project root:
+
+```
+set PYTHONPATH=src
+python -m corpuscustody version
+```
+
+```
+corpuscustody 0.1.0
+```
+
+The `set PYTHONPATH=src` form is the Windows shell. On a POSIX shell use
+`PYTHONPATH=src python -m corpuscustody version`.
+
+## Commands
+
+Four subcommands. All read a manifest; `gate` and `report` also require a
