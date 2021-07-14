@@ -158,3 +158,24 @@ does not block.
 | `share_alike`    | (none)     | finding      | note           |
 | `non_commercial` | (none)     | finding      | (none)         |
 | `no_derivatives` | note       | finding      | finding        |
+| `attribution`    | note       | note         | note           |
+
+Reading the table as prose, so the intent is unambiguous:
+
+- `unknown` is a finding for every purpose. Unknown provenance never passes.
+- `share_alike` is a finding for commercial, because a share-alike corpus mixed
+  into a proprietary release forces that release to share alike. For
+  redistribute it is a note: the combined set must then carry the terms.
+- `non_commercial` is a finding for commercial only. Internal and redistribute
+  are assumed non-commercial here, so it is not reported at all for internal and
+  raises nothing for redistribute.
+- `no_derivatives` is a finding for commercial and redistribute, because both
+  typically transform or repackage the data, and a note for internal.
+- `attribution` is never a blocking finding. It is always a note: attribution
+  must be preserved.
+
+Issues are emitted in record order, then in the obligation order declared in
+`spdx.py` (`attribution`, `share_alike`, `non_commercial`, `no_derivatives`,
+`unknown`), so identical input yields byte-identical output.
+
+## Unknown provenance is a refusal, not a warning
