@@ -136,3 +136,25 @@ declare changes which obligations block and which are only noted.
 | -------------- | ------------------------------------------------------------- | ----------------- |
 | `internal`     | internal research use, not distributed outside the org        | none              |
 | `commercial`   | a commercial product, distributed, possibly proprietary       | yes, and for sale |
+| `redistribute` | redistributed as a dataset or corpus to third parties         | yes               |
+
+Internal use is the most permissive purpose here, because nothing leaves the
+organisation. Share-alike and non-commercial obligations do not block internal
+research: you are not distributing, and you are not selling. Commercial use is
+the strictest, because it both distributes and sells. Redistribution sits
+between the two: it distributes, so no-derivatives blocks it, but it is assumed
+non-commercial, so a share-alike record is a note rather than a hard block.
+
+## The compatibility rules
+
+These are the actual rules the code applies, transcribed from the `_RULES` table
+in `src/corpuscustody/compat.py`. A blank cell means the obligation raises no
+issue for that purpose. `finding` blocks the gate. `note` is informational and
+does not block.
+
+| Obligation       | `internal` | `commercial` | `redistribute` |
+| ---------------- | ---------- | ------------ | -------------- |
+| `unknown`        | finding    | finding      | finding        |
+| `share_alike`    | (none)     | finding      | note           |
+| `non_commercial` | (none)     | finding      | (none)         |
+| `no_derivatives` | note       | finding      | finding        |
