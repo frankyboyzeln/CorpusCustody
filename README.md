@@ -179,3 +179,24 @@ Issues are emitted in record order, then in the obligation order declared in
 `unknown`), so identical input yields byte-identical output.
 
 ## Unknown provenance is a refusal, not a warning
+
+The single most consequential design choice is that an unresolvable license does
+not degrade to permissive and does not become a soft warning. It becomes a
+blocking finding for every purpose, and it makes the gate refuse.
+
+Two things resolve to `UNKNOWN`: an empty license field, and the explicit token
+`UNKNOWN`. The resolver in `spdx.py` returns the `UNKNOWN` sentinel for both, and
+for any identifier not in the table. That sentinel carries all five obligations,
+so it trips the `unknown` finding no matter the purpose.
+
+This default matters because the opposite choice fails silently and expensively.
+If unknown resolved to permissive, a scraped folder nobody labelled would sail
+through and land in a shipped product, and the first sign of trouble would be a
+takedown or a lawsuit. A refusal is loud and cheap: it stops the pipeline now,
+names the records, and asks a person to establish provenance before proceeding.
+That conservatism is deliberate and not adjustable by a flag.
+
+## A worked gate run
+
+Below are the real decisions for each of the three sample manifests, captured by
+running the CLI in this repository. The manifests are described in
