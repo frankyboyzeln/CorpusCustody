@@ -115,3 +115,24 @@ is a mechanical yes or no fact about the license, not a judgement. These five
 obligations are the entire vocabulary the tool reasons over.
 
 | Obligation       | Key              | What it means                                                  |
+| ---------------- | ---------------- | -------------------------------------------------------------- |
+| Attribution      | `attribution`    | attribution or notices must be preserved                       |
+| Share alike      | `share_alike`    | derivatives or the combined work must carry the same license   |
+| Non commercial   | `non_commercial` | commercial use is not permitted                                |
+| No derivatives   | `no_derivatives` | modified or derived works are not permitted                    |
+| Unknown          | `unknown`        | provenance or license is not established                       |
+
+The `unknown` obligation is special. It is never inferred as permissive. A
+record whose license cannot be resolved is treated as carrying every restrictive
+obligation at once, so it can never quietly pass a gate. That is defined once, in
+`src/corpuscustody/spdx.py`, as the `UNKNOWN` sentinel with all five flags set.
+
+## Purposes and why they differ
+
+The same set can be safe for one use and unsafe for another. The purpose you
+declare changes which obligations block and which are only noted.
+
+| Purpose        | Intent                                                        | Distribution      |
+| -------------- | ------------------------------------------------------------- | ----------------- |
+| `internal`     | internal research use, not distributed outside the org        | none              |
+| `commercial`   | a commercial product, distributed, possibly proprietary       | yes, and for sale |
