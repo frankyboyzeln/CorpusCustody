@@ -285,3 +285,24 @@ notes: 7
   rec-2004 | Apache-2.0 | attribution: attribution must be preserved
   rec-2005 | UNKNOWN | attribution: attribution must be preserved
   rec-2005 | UNKNOWN | no_derivatives: no-derivatives license, transformation blocked
+```
+
+The `UNKNOWN` records also emit `no_derivatives` notes for internal, because the
+sentinel carries every obligation and `no_derivatives` is a note under internal.
+
+## Manifest format field by field
+
+A manifest is a UTF-8 text file, one record per line. Blank lines and lines whose
+first non-space character is `#` are ignored, so manifests carry comments and
+stay diffable. Each record line has exactly three pipe-separated fields.
+
+```
+record_id | spdx_id | source
+```
+
+| Field       | Position | Required | Meaning                                                              |
+| ----------- | -------- | -------- | -------------------------------------------------------------------- |
+| `record_id` | 1        | yes      | free text identifier for the record; an empty value is a parse error |
+| `spdx_id`   | 2        | no       | SPDX identifier; empty or unrecognised resolves to `UNKNOWN`         |
+| `source`    | 3        | no       | free text provenance note; not validated                            |
+
