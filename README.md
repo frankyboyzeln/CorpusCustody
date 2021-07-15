@@ -327,3 +327,24 @@ The `resolve` view lists every record with its resolved license and its active
 obligations (or `none`), then a license count summary sorted by SPDX identifier.
 
 ```
+python -m corpuscustody resolve samples/sharealike.manifest
+```
+
+```
+records: 5
+  rec-1001 | MIT | attribution
+  rec-1002 | CC-BY-SA-4.0 | attribution,share_alike
+  rec-1003 | Apache-2.0 | attribution
+  rec-1004 | CC-BY-NC-4.0 | attribution,non_commercial
+  rec-1005 | GPL-3.0-only | attribution,share_alike
+license counts:
+  Apache-2.0: 1
+  CC-BY-NC-4.0: 1
+  CC-BY-SA-4.0: 1
+  GPL-3.0-only: 1
+  MIT: 1
+```
+
+The `gate` view is fixed and diffable: a `purpose` line, a `records` count, a
+`decision` of `PASS` or `REFUSE`, a `findings` count with one line per finding,
+then a `notes` count with one line per note. Each issue line is
