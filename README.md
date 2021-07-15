@@ -263,3 +263,25 @@ purpose changed; the records did not.
 ### unknown.manifest, internal: REFUSE, 2 findings
 
 Two records resolve to `UNKNOWN`, one from an empty license field (`rec-2003`)
+and one from the explicit token (`rec-2005`). Even for the most permissive
+purpose, the gate refuses.
+
+```
+python -m corpuscustody gate samples/unknown.manifest --purpose internal
+```
+
+```
+purpose: internal
+records: 5
+decision: REFUSE
+findings: 2
+  rec-2003 | UNKNOWN | unknown: provenance unknown, cannot clear
+  rec-2005 | UNKNOWN | unknown: provenance unknown, cannot clear
+notes: 7
+  rec-2001 | MIT | attribution: attribution must be preserved
+  rec-2002 | CC-BY-4.0 | attribution: attribution must be preserved
+  rec-2003 | UNKNOWN | attribution: attribution must be preserved
+  rec-2003 | UNKNOWN | no_derivatives: no-derivatives license, transformation blocked
+  rec-2004 | Apache-2.0 | attribution: attribution must be preserved
+  rec-2005 | UNKNOWN | attribution: attribution must be preserved
+  rec-2005 | UNKNOWN | no_derivatives: no-derivatives license, transformation blocked
