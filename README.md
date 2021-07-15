@@ -306,3 +306,24 @@ record_id | spdx_id | source
 | `spdx_id`   | 2        | no       | SPDX identifier; empty or unrecognised resolves to `UNKNOWN`         |
 | `source`    | 3        | no       | free text provenance note; not validated                            |
 
+Surrounding whitespace on each field is stripped. Parsing is deliberately dumb:
+`spdx_id` is read but not validated at parse time, so parsing and license policy
+stay in separate modules. Validation happens later, at resolve time. A line with
+anything other than three fields raises a `ManifestError` and the process exits
+2. A real sample manifest, comment lines and all:
+
+```
+# permissive.manifest
+rec-0001 | MIT | github.com/example/tokenizer
+rec-0002 | Apache-2.0 | github.com/example/corpus-tools
+rec-0003 | CC0-1.0 | zenodo.org/record/000001
+rec-0004 | BSD-3-Clause | github.com/example/textnorm
+rec-0005 | CC-BY-4.0 | data.example.org/news-2020
+```
+
+## Output format and the cleared manifest
+
+The `resolve` view lists every record with its resolved license and its active
+obligations (or `none`), then a license count summary sorted by SPDX identifier.
+
+```
