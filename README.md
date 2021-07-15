@@ -221,3 +221,24 @@ notes: 4
   rec-0001 | MIT | attribution: attribution must be preserved
   rec-0002 | Apache-2.0 | attribution: attribution must be preserved
   rec-0004 | BSD-3-Clause | attribution: attribution must be preserved
+  rec-0005 | CC-BY-4.0 | attribution: attribution must be preserved
+```
+
+Note that `rec-0003` (CC0-1.0) produces no note at all: CC0 carries no
+obligations, so it is silent.
+
+### sharealike.manifest, commercial: REFUSE, 3 findings
+
+The same set that is fine internally mixes share-alike and non-commercial
+records into a commercial release. Three findings, and the process exits 1.
+
+```
+python -m corpuscustody gate samples/sharealike.manifest --purpose commercial
+```
+
+```
+purpose: commercial
+records: 5
+decision: REFUSE
+findings: 3
+  rec-1002 | CC-BY-SA-4.0 | share_alike: share-alike terms attach to the combined set
