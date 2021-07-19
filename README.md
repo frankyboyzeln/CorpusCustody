@@ -369,3 +369,24 @@ rec-0003 | CC0-1.0 | commercial
 rec-0004 | BSD-3-Clause | commercial
 rec-0005 | CC-BY-4.0 | commercial
 ```
+
+No cleared manifest is written on REFUSE, even if `--out` is given.
+
+## Exit codes
+
+The exit code is the machine-readable result. Use it in CI to fail a pipeline
+when the gate refuses.
+
+| Code | Meaning                                                        |
+| ---- | ------------------------------------------------------------- |
+| 0    | clean: gate passed, or an informational command succeeded     |
+| 1    | gate refused: at least one blocking finding                   |
+| 2    | usage error or bad input: missing manifest, bad line, bad purpose |
+
+These were confirmed in this session: help with no subcommand exits 2, a passing
+gate exits 0, a refusing gate exits 1, and `resolve` on a missing file exits 2
+with `error: manifest not found:` on stderr. In a CI step, a nonzero exit from
+`gate` should fail the job. To diff two runs in git, commit the `resolve` or
+cleared-manifest output and let the deterministic ordering make the diff
+meaningful.
+
