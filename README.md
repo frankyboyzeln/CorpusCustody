@@ -433,3 +433,24 @@ decision, never a substitute for one.
 
 Two choices shape everything else. Each is stated with the alternative rejected
 and why.
+
+**An offline table, not a license API.** Obligations live in a small
+hand-maintained dict in `spdx.py`. The rejected alternative was to resolve
+identifiers over the network against a live service. That was rejected because a
+gate that reaches the network is non-deterministic (the same manifest could pass
+today and refuse next week), because a network dependency is a supply-chain and
+availability risk in the pipeline where you least want surprises, and because
+obligations for the common identifiers are stable and few, so a short audited
+table is more trustworthy than an opaque remote answer. The cost is real and
+acknowledged: the table is incomplete, and any identifier it lacks resolves to
+`UNKNOWN` and blocks. That cost is paid on purpose, and it fails safe.
+
+**Refuse on unknown, not warn.** An unresolvable license makes the gate refuse
+for every purpose. The rejected alternative was to warn and let the set pass.
+That was rejected because a warning is a decision deferred to nobody: it scrolls
+past in a log, the pipeline goes green, and the unlabelled record ships. A
+refusal forces the decision to a person now, while it is cheap to fix. The
+conservatism is not configurable, because a flag to downgrade refusals to
+warnings would be the first thing switched on under deadline pressure, which is
+precisely when it is most dangerous.
+
