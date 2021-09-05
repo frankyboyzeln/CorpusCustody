@@ -454,3 +454,24 @@ conservatism is not configurable, because a flag to downgrade refusals to
 warnings would be the first thing switched on under deadline pressure, which is
 precisely when it is most dangerous.
 
+## Repository layout
+
+Generated from the real tree, `__pycache__` and build artifacts omitted.
+
+```
+corpuscustody/
+  README.md                     this file
+  CHANGELOG.md                  version history
+  LICENSE                       MIT license text
+  pyproject.toml                package metadata, entry point, build config
+  .gitignore                    ignored paths (pycache, build, venv)
+  docs/
+    assets/
+      logo.svg                  wordmark: three record blocks through a gate
+      obligation-matrix.svg     license-by-obligation grid, counts from samples
+  samples/
+    README.md                   description of the three test-vector manifests
+    permissive.manifest         five permissive records, passes every purpose
+    sharealike.manifest         share-alike and non-commercial mix
+    unknown.manifest            two records of unknown provenance
+  src/
