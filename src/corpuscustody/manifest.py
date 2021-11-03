@@ -24,3 +24,9 @@ class ManifestError(ValueError):
     """Raised when a manifest line cannot be parsed into a record."""
 
 
+@dataclass(frozen=True)
+class Record:
+    """One dataset record drawn from a manifest line."""
+
+    line_no: int
+    record_id: str
