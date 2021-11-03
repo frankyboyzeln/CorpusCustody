@@ -11,3 +11,10 @@ Each record line has three tab-separated or pipe-separated fields:
 The separator is a single pipe `|`. Surrounding whitespace on each field is
 stripped. `record_id` and `source` are free text. `spdx_id` is looked up in the
 offline SPDX table at resolve time; it is not validated here beyond being read.
+
+An empty spdx_id field is preserved as an empty string, which the resolver maps
+to UNKNOWN. This keeps parsing and license policy in separate modules.
+"""
+
+from dataclasses import dataclass
+from typing import List
