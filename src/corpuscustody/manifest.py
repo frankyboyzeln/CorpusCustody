@@ -18,3 +18,9 @@ to UNKNOWN. This keeps parsing and license policy in separate modules.
 
 from dataclasses import dataclass
 from typing import List
+
+
+class ManifestError(ValueError):
+    """Raised when a manifest line cannot be parsed into a record."""
+
+
