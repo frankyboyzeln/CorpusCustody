@@ -30,3 +30,10 @@ class Record:
 
     line_no: int
     record_id: str
+    spdx_id: str
+    source: str
+
+
+def parse_line(line_no: int, raw: str) -> Record:
+    """Parse a single non-comment, non-blank line into a Record.
+
