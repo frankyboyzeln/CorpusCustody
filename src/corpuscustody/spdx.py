@@ -16,3 +16,11 @@ resolvable license is treated as carrying every restrictive obligation, so it
 can never silently pass a gate.
 """
 
+from dataclasses import dataclass, field
+from typing import Dict, List
+
+# Obligation keys, declared once so callers can iterate deterministically.
+OBLIGATIONS: List[str] = [
+    "attribution",
+    "share_alike",
+    "non_commercial",
