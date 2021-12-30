@@ -71,3 +71,10 @@ _TABLE: Dict[str, License] = {
         non_commercial=True,
         no_derivatives=True,
     ),
+}
+
+# The sentinel used when a record's license cannot be resolved. Every
+# restrictive obligation is set so it can never pass as permissive.
+UNKNOWN = License(
+    "UNKNOWN",
+    attribution=True,
