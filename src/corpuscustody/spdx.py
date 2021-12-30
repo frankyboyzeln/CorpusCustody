@@ -47,3 +47,11 @@ class License:
             if getattr(self, name):
                 active.append(name)
         return active
+
+
+# The table. Kept short and honest. Every entry is a common identifier whose
+# obligations are well established and mechanical to state.
+_TABLE: Dict[str, License] = {
+    "CC0-1.0": License("CC0-1.0"),
+    "Unlicense": License("Unlicense"),
+    "MIT": License("MIT", attribution=True),
