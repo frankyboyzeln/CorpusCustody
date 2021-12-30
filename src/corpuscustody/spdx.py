@@ -39,3 +39,11 @@ class License:
     non_commercial: bool = False
     no_derivatives: bool = False
     unknown: bool = False
+
+    def obligations(self) -> List[str]:
+        """Return the active obligation names in declared order."""
+        active = []
+        for name in OBLIGATIONS:
+            if getattr(self, name):
+                active.append(name)
+        return active
