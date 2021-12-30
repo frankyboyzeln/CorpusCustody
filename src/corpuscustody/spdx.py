@@ -63,3 +63,11 @@ _TABLE: Dict[str, License] = {
     "GPL-3.0-only": License("GPL-3.0-only", attribution=True, share_alike=True),
     "LGPL-3.0-only": License("LGPL-3.0-only", attribution=True, share_alike=True),
     "MPL-2.0": License("MPL-2.0", attribution=True, share_alike=True),
+    "CC-BY-NC-4.0": License("CC-BY-NC-4.0", attribution=True, non_commercial=True),
+    "CC-BY-ND-4.0": License("CC-BY-ND-4.0", attribution=True, no_derivatives=True),
+    "CC-BY-NC-ND-4.0": License(
+        "CC-BY-NC-ND-4.0",
+        attribution=True,
+        non_commercial=True,
+        no_derivatives=True,
+    ),
