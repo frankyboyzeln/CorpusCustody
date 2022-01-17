@@ -23,3 +23,14 @@ finding. The rules are mechanical and intentionally conservative:
                   preserved.
 
 A finding blocks the gate. A note is informational and does not block.
+"""
+
+from dataclasses import dataclass
+from typing import Dict, List
+
+from .manifest import Record
+from .spdx import License, resolve
+
+PURPOSES: List[str] = ["internal", "commercial", "redistribute"]
+
+# severity levels
