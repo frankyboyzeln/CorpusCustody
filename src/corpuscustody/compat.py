@@ -13,3 +13,13 @@ finding. The rules are mechanical and intentionally conservative:
   non_commercial  a finding for commercial. Internal and redistribute are
                   assumed non commercial here, so it is only reported as a note.
   share_alike     a finding for commercial, because a share-alike corpus mixed
+                  into a proprietary release forces the release to share alike.
+                  For redistribute it is a note: the combined set must then
+                  carry the share-alike terms.
+  no_derivatives  a finding for commercial and redistribute, because both
+                  typically transform or repackage the data. A note for
+                  internal.
+  attribution     never a blocking finding. It is a note: attribution must be
+                  preserved.
+
+A finding blocks the gate. A note is informational and does not block.
