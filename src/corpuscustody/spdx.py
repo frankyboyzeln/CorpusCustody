@@ -78,3 +78,11 @@ _TABLE: Dict[str, License] = {
 UNKNOWN = License(
     "UNKNOWN",
     attribution=True,
+    share_alike=True,
+    non_commercial=True,
+    no_derivatives=True,
+    unknown=True,
+)
+
+
+def known_identifiers() -> List[str]:
