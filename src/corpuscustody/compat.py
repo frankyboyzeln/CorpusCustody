@@ -34,3 +34,13 @@ from .spdx import License, resolve
 PURPOSES: List[str] = ["internal", "commercial", "redistribute"]
 
 # severity levels
+FINDING = "finding"
+NOTE = "note"
+
+
+class PurposeError(ValueError):
+    """Raised when an unrecognised purpose is supplied."""
+
+
+@dataclass(frozen=True)
+class Issue:
