@@ -44,3 +44,14 @@ class PurposeError(ValueError):
 
 @dataclass(frozen=True)
 class Issue:
+    """A single obligation issue found for a record under a purpose."""
+
+    record_id: str
+    spdx_id: str
+    obligation: str
+    severity: str
+    message: str
+
+
+# Per obligation, per purpose severity. Missing entries mean no issue.
+_RULES: Dict[str, Dict[str, str]] = {
