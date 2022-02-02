@@ -55,3 +55,14 @@ class Issue:
 
 # Per obligation, per purpose severity. Missing entries mean no issue.
 _RULES: Dict[str, Dict[str, str]] = {
+    "unknown": {
+        "internal": FINDING,
+        "commercial": FINDING,
+        "redistribute": FINDING,
+    },
+    "share_alike": {
+        "commercial": FINDING,
+        "redistribute": NOTE,
+    },
+    "non_commercial": {
+        "commercial": FINDING,
