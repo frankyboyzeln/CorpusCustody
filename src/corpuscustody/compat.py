@@ -66,3 +66,13 @@ _RULES: Dict[str, Dict[str, str]] = {
     },
     "non_commercial": {
         "commercial": FINDING,
+    },
+    "no_derivatives": {
+        "commercial": FINDING,
+        "redistribute": FINDING,
+        "internal": NOTE,
+    },
+    "attribution": {
+        "internal": NOTE,
+        "commercial": NOTE,
+        "redistribute": NOTE,
