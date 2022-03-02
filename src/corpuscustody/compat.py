@@ -87,3 +87,13 @@ _MESSAGES: Dict[str, str] = {
     "attribution": "attribution must be preserved",
 }
 
+
+def check_purpose(purpose: str) -> str:
+    """Validate and normalise a purpose string."""
+    key = (purpose or "").strip().lower()
+    if key not in PURPOSES:
+        raise PurposeError(
+            "unknown purpose {0!r}, expected one of {1}".format(
+                purpose, ", ".join(PURPOSES)
+            )
+        )
