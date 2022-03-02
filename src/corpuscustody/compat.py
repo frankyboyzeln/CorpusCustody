@@ -76,3 +76,14 @@ _RULES: Dict[str, Dict[str, str]] = {
         "internal": NOTE,
         "commercial": NOTE,
         "redistribute": NOTE,
+    },
+}
+
+_MESSAGES: Dict[str, str] = {
+    "unknown": "provenance unknown, cannot clear",
+    "share_alike": "share-alike terms attach to the combined set",
+    "non_commercial": "non-commercial license, commercial use blocked",
+    "no_derivatives": "no-derivatives license, transformation blocked",
+    "attribution": "attribution must be preserved",
+}
+
