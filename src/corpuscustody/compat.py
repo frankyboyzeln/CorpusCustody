@@ -108,3 +108,13 @@ def issues_for_license(record_id: str, lic: License, purpose: str) -> List[Issue
         if severity is None:
             continue
         found.append(
+            Issue(
+                record_id=record_id,
+                spdx_id=lic.spdx_id,
+                obligation=obligation,
+                severity=severity,
+                message=_MESSAGES[obligation],
+            )
+        )
+    return found
+
