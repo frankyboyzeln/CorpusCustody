@@ -97,3 +97,14 @@ def check_purpose(purpose: str) -> str:
                 purpose, ", ".join(PURPOSES)
             )
         )
+    return key
+
+
+def issues_for_license(record_id: str, lic: License, purpose: str) -> List[Issue]:
+    """Return all issues a single license raises under the purpose."""
+    found: List[Issue] = []
+    for obligation in lic.obligations():
+        severity = _RULES.get(obligation, {}).get(purpose)
+        if severity is None:
+            continue
+        found.append(
