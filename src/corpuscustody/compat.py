@@ -118,3 +118,14 @@ def issues_for_license(record_id: str, lic: License, purpose: str) -> List[Issue
         )
     return found
 
+
+@dataclass
+class SetResult:
+    """The set level compatibility result for a manifest under a purpose."""
+
+    purpose: str
+    issues: List[Issue]
+
+    @property
+    def findings(self) -> List[Issue]:
+        return [i for i in self.issues if i.severity == FINDING]
