@@ -13,3 +13,10 @@ because unknown is a blocking finding for every purpose (see compat.py).
 """
 
 from dataclasses import dataclass
+from typing import List
+
+from .compat import Issue, SetResult, evaluate
+from .manifest import Record
+from .spdx import resolve
+
+PASS = "PASS"
