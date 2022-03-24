@@ -6,3 +6,10 @@ decides:
   PASS    no blocking findings. A cleared manifest may be emitted.
   REFUSE  at least one blocking finding. No cleared manifest is emitted.
 
+A cleared manifest is only written on PASS. It lists every record that was
+checked, its resolved SPDX identifier, and the purpose it was cleared for. The
+gate refuses rather than clearing when any record's provenance is unknown,
+because unknown is a blocking finding for every purpose (see compat.py).
+"""
+
+from dataclasses import dataclass
