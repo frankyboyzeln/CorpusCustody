@@ -20,3 +20,11 @@ from .manifest import Record
 from .spdx import resolve
 
 PASS = "PASS"
+REFUSE = "REFUSE"
+
+
+@dataclass
+class GateResult:
+    """The outcome of a gate decision."""
+
+    purpose: str
