@@ -56,3 +56,10 @@ def decide(records: List[Record], purpose: str) -> GateResult:
         result=result,
     )
 
+
+def cleared_manifest_lines(records: List[Record], purpose: str) -> List[str]:
+    """Build the cleared manifest lines for a passing set.
+
+    Returns a header comment block followed by one cleared line per record.
+    Lines are returned without trailing newlines so the caller controls the
+    line terminator and byte-identical output stays under its control.
