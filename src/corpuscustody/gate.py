@@ -63,3 +63,10 @@ def cleared_manifest_lines(records: List[Record], purpose: str) -> List[str]:
     Returns a header comment block followed by one cleared line per record.
     Lines are returned without trailing newlines so the caller controls the
     line terminator and byte-identical output stays under its control.
+    """
+    lines: List[str] = []
+    lines.append("# corpuscustody cleared manifest")
+    lines.append("# purpose: {0}".format(purpose))
+    lines.append("# record_id | spdx_id | cleared_for")
+    for record in records:
+        lic = resolve(record.spdx_id)
