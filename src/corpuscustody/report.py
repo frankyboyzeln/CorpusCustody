@@ -21,3 +21,12 @@ def license_counts(records: List[Record]) -> Dict[str, int]:
     return dict(counter)
 
 
+def render_resolve(records: List[Record]) -> List[str]:
+    """Render the resolve view: each record and a license count summary."""
+    lines: List[str] = []
+    lines.append("records: {0}".format(len(records)))
+    for record in records:
+        lic = resolve(record.spdx_id)
+        obs = ",".join(lic.obligations()) or "none"
+        lines.append(
+            "  {0} | {1} | {2}".format(record.record_id, lic.spdx_id, obs)
