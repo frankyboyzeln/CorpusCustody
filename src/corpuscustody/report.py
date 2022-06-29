@@ -5,3 +5,11 @@ SPDX identifier so the same input yields byte-identical output.
 """
 
 from collections import Counter
+from typing import Dict, List
+
+from .compat import SetResult
+from .gate import GateResult
+from .manifest import Record
+from .spdx import resolve
+
+
