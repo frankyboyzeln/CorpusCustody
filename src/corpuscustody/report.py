@@ -30,3 +30,11 @@ def render_resolve(records: List[Record]) -> List[str]:
         obs = ",".join(lic.obligations()) or "none"
         lines.append(
             "  {0} | {1} | {2}".format(record.record_id, lic.spdx_id, obs)
+        )
+    lines.append("license counts:")
+    counts = license_counts(records)
+    for spdx_id in sorted(counts):
+        lines.append("  {0}: {1}".format(spdx_id, counts[spdx_id]))
+    return lines
+
+
