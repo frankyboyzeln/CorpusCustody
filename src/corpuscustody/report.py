@@ -46,3 +46,12 @@ def render_gate(gate: GateResult) -> List[str]:
     lines.append("decision: {0}".format(gate.decision))
     lines.append("findings: {0}".format(len(gate.findings)))
     for issue in gate.findings:
+        lines.append(
+            "  {0} | {1} | {2}: {3}".format(
+                issue.record_id, issue.spdx_id, issue.obligation, issue.message
+            )
+        )
+    lines.append("notes: {0}".format(len(gate.notes)))
+    for issue in gate.notes:
+        lines.append(
+            "  {0} | {1} | {2}: {3}".format(
