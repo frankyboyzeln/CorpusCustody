@@ -22,3 +22,16 @@ from .gate import decide, write_cleared_manifest
 from .manifest import ManifestError, parse_file
 from .report import render_gate, render_report, render_resolve
 
+USAGE_ERROR = 2
+REFUSED = 1
+OK = 0
+
+
+def _build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="corpuscustody",
+        description="Training-data license and provenance gate.",
+    )
+    sub = parser.add_subparsers(dest="command")
+
+    p_resolve = sub.add_parser(
