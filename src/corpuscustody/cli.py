@@ -48,3 +48,15 @@ def _build_parser() -> argparse.ArgumentParser:
         required=True,
         choices=PURPOSES,
         help="declared purpose for the combined set",
+    )
+    p_gate.add_argument(
+        "--out",
+        default=None,
+        help="write a cleared manifest to this path on pass",
+    )
+
+    p_report = sub.add_parser(
+        "report", help="print the combined resolve and gate report"
+    )
+    p_report.add_argument("manifest", help="path to a dataset manifest")
+    p_report.add_argument(
