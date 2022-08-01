@@ -35,3 +35,16 @@ def _build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command")
 
     p_resolve = sub.add_parser(
+        "resolve", help="parse a manifest and resolve each record's license"
+    )
+    p_resolve.add_argument("manifest", help="path to a dataset manifest")
+
+    p_gate = sub.add_parser(
+        "gate", help="run the pass or refuse decision for a declared purpose"
+    )
+    p_gate.add_argument("manifest", help="path to a dataset manifest")
+    p_gate.add_argument(
+        "--purpose",
+        required=True,
+        choices=PURPOSES,
+        help="declared purpose for the combined set",
