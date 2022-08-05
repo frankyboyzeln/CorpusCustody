@@ -85,3 +85,16 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if args.command == "version":
         print("corpuscustody {0}".format(__version__))
+        return OK
+
+    try:
+        records = parse_file(args.manifest)
+    except FileNotFoundError:
+        print("error: manifest not found: {0}".format(args.manifest), file=sys.stderr)
+        return USAGE_ERROR
+    except ManifestError as exc:
+        print("error: {0}".format(exc), file=sys.stderr)
+        return USAGE_ERROR
+
+    if args.command == "resolve":
+        _emit(render_resolve(records))
