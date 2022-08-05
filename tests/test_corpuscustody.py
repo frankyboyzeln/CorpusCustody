@@ -33,3 +33,16 @@ class SpdxTests(unittest.TestCase):
 
     def test_known_identifiers_sorted(self):
         ids = spdx.known_identifiers()
+        self.assertEqual(ids, sorted(ids))
+        self.assertIn("MIT", ids)
+
+
+class ManifestTests(unittest.TestCase):
+    def test_parse_line_ok(self):
+        rec = manifest.parse_line(1, "rec-1 | MIT | src")
+        self.assertEqual(rec.record_id, "rec-1")
+        self.assertEqual(rec.spdx_id, "MIT")
+        self.assertEqual(rec.source, "src")
+
+    def test_wrong_field_count_raises(self):
+        with self.assertRaises(manifest.ManifestError):
