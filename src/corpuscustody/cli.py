@@ -60,3 +60,16 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     p_report.add_argument("manifest", help="path to a dataset manifest")
     p_report.add_argument(
+        "--purpose",
+        required=True,
+        choices=PURPOSES,
+        help="declared purpose for the combined set",
+    )
+
+    sub.add_parser("version", help="print the version")
+    return parser
+
+
+def _emit(lines: List[str]) -> None:
+    for line in lines:
+        print(line)
