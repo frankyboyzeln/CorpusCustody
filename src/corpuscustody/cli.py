@@ -73,3 +73,15 @@ def _build_parser() -> argparse.ArgumentParser:
 def _emit(lines: List[str]) -> None:
     for line in lines:
         print(line)
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    parser = _build_parser()
+    args = parser.parse_args(argv)
+
+    if args.command is None:
+        parser.print_help()
+        return USAGE_ERROR
+
+    if args.command == "version":
+        print("corpuscustody {0}".format(__version__))
