@@ -46,3 +46,17 @@ class ManifestTests(unittest.TestCase):
 
     def test_wrong_field_count_raises(self):
         with self.assertRaises(manifest.ManifestError):
+            manifest.parse_line(1, "rec-1 | MIT")
+
+    def test_empty_record_id_raises(self):
+        with self.assertRaises(manifest.ManifestError):
+            manifest.parse_line(1, " | MIT | src")
+
+    def test_comments_and_blanks_ignored(self):
+        text = "# comment\n\nrec-1 | MIT | s\n"
+        recs = manifest.parse_text(text)
+        self.assertEqual(len(recs), 1)
+
+    def test_empty_license_field_preserved(self):
+        rec = manifest.parse_line(1, "rec-1 |  | src")
+        self.assertEqual(rec.spdx_id, "")
