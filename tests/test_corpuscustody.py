@@ -60,3 +60,16 @@ class ManifestTests(unittest.TestCase):
     def test_empty_license_field_preserved(self):
         rec = manifest.parse_line(1, "rec-1 |  | src")
         self.assertEqual(rec.spdx_id, "")
+
+
+class CompatTests(unittest.TestCase):
+    def _records(self, name):
+        return manifest.parse_file(os.path.join(SAMPLES, name))
+
+    def test_purpose_validation(self):
+        with self.assertRaises(compat.PurposeError):
+            compat.check_purpose("nonsense")
+        self.assertEqual(compat.check_purpose("Commercial"), "commercial")
+
+    def test_permissive_clear_for_commercial(self):
+        recs = self._records("permissive.manifest")
