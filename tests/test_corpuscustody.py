@@ -114,3 +114,16 @@ class GateTests(unittest.TestCase):
         self.assertEqual(g.decision, gate.REFUSE)
         self.assertTrue(g.refused)
 
+    def test_cleared_manifest_lines_deterministic(self):
+        recs = self._records("permissive.manifest")
+        a = gate.cleared_manifest_lines(recs, "commercial")
+        b = gate.cleared_manifest_lines(recs, "commercial")
+        self.assertEqual(a, b)
+        self.assertTrue(a[0].startswith("# corpuscustody cleared manifest"))
+
+    def test_write_cleared_manifest(self):
+        recs = self._records("permissive.manifest")
+        with tempfile.TemporaryDirectory() as tmp:
+            out = os.path.join(tmp, "cleared.manifest")
+            gate.write_cleared_manifest(out, recs, "commercial")
+            with open(out, "r", encoding="utf-8", newline="") as handle:
