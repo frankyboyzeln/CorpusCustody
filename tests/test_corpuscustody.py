@@ -100,3 +100,17 @@ class CompatTests(unittest.TestCase):
             )
 
 
+class GateTests(unittest.TestCase):
+    def _records(self, name):
+        return manifest.parse_file(os.path.join(SAMPLES, name))
+
+    def test_permissive_passes(self):
+        g = gate.decide(self._records("permissive.manifest"), "commercial")
+        self.assertEqual(g.decision, gate.PASS)
+        self.assertFalse(g.refused)
+
+    def test_unknown_refuses(self):
+        g = gate.decide(self._records("unknown.manifest"), "internal")
+        self.assertEqual(g.decision, gate.REFUSE)
+        self.assertTrue(g.refused)
+
