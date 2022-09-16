@@ -87,3 +87,16 @@ class CompatTests(unittest.TestCase):
 
     def test_sharealike_clear_for_internal(self):
         recs = self._records("sharealike.manifest")
+        result = compat.evaluate(recs, "internal")
+        self.assertTrue(result.clear)
+
+    def test_unknown_blocks_every_purpose(self):
+        recs = self._records("unknown.manifest")
+        for purpose in compat.PURPOSES:
+            result = compat.evaluate(recs, purpose)
+            self.assertFalse(result.clear, purpose)
+            self.assertTrue(
+                any(i.obligation == "unknown" for i in result.findings), purpose
+            )
+
+
