@@ -73,3 +73,17 @@ class CompatTests(unittest.TestCase):
 
     def test_permissive_clear_for_commercial(self):
         recs = self._records("permissive.manifest")
+        result = compat.evaluate(recs, "commercial")
+        self.assertTrue(result.clear)
+        self.assertEqual(result.findings, [])
+
+    def test_sharealike_blocks_commercial(self):
+        recs = self._records("sharealike.manifest")
+        result = compat.evaluate(recs, "commercial")
+        self.assertFalse(result.clear)
+        obligations = {i.obligation for i in result.findings}
+        self.assertIn("share_alike", obligations)
+        self.assertIn("non_commercial", obligations)
+
+    def test_sharealike_clear_for_internal(self):
+        recs = self._records("sharealike.manifest")
