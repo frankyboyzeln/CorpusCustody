@@ -127,3 +127,17 @@ class GateTests(unittest.TestCase):
             out = os.path.join(tmp, "cleared.manifest")
             gate.write_cleared_manifest(out, recs, "commercial")
             with open(out, "r", encoding="utf-8", newline="") as handle:
+                data = handle.read()
+            self.assertIn("rec-0001 | MIT | commercial", data)
+            self.assertNotIn("\r\n", data)
+
+
+class ReportTests(unittest.TestCase):
+    def _records(self, name):
+        return manifest.parse_file(os.path.join(SAMPLES, name))
+
+    def test_license_counts(self):
+        counts = report.license_counts(self._records("unknown.manifest"))
+        self.assertEqual(counts["UNKNOWN"], 2)
+        self.assertEqual(counts["MIT"], 1)
+
