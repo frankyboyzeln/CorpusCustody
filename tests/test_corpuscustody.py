@@ -141,3 +141,17 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(counts["UNKNOWN"], 2)
         self.assertEqual(counts["MIT"], 1)
 
+    def test_render_resolve_lines(self):
+        lines = report.render_resolve(self._records("permissive.manifest"))
+        self.assertEqual(lines[0], "records: 5")
+
+
+class CliTests(unittest.TestCase):
+    def _run(self, argv):
+        import contextlib
+
+        out = io.StringIO()
+        err = io.StringIO()
+        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            code = cli.main(argv)
+        return code, out.getvalue(), err.getvalue()
