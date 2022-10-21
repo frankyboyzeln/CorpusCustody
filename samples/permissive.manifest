@@ -1,2 +1,5 @@
 # permissive.manifest
 # A cleanly permissive set: attribution at most, no share-alike, no unknowns.
+# Fields: record_id | spdx_id | source
+rec-0001 | MIT | github.com/example/tokenizer
+rec-0002 | Apache-2.0 | github.com/example/corpus-tools
