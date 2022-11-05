@@ -29,3 +29,21 @@ BANNED_MARKETING = [
     "cutting-edge",
     "state-of-the-art",
     "revolutionary",
+    "game-changing",
+    "game changer",
+    "next-generation",
+    "world-class",
+    "best-in-class",
+    "turnkey",
+    "supercharge",
+    "unleash",
+    "leverage",
+    "synergy",
+    "robust",
+    "powerful",
+]
+
+# The three forms an em dash can take (Lesson 1).
+EM_DASH_FORMS = ["\u2014", "&#8212;", "&mdash;"]
+
+# Banned SVG filter primitives (glow, shadow, noise) per the standard.
