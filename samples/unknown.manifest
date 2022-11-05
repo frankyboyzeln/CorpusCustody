@@ -1,1 +1,3 @@
 # unknown.manifest
+# A set containing records of unknown provenance. The empty license field on
+# rec-2003 and the explicit UNKNOWN on rec-2005 both resolve to UNKNOWN, which
