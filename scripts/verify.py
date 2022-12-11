@@ -65,3 +65,22 @@ def _iter_tracked_text_files():
     skip_dirs = {".git", "__pycache__", "build", "dist", ".venv"}
     text_exts = {
         ".md",
+        ".py",
+        ".svg",
+        ".toml",
+        ".cff",
+        ".yml",
+        ".yaml",
+        ".cfg",
+        ".ini",
+        ".txt",
+        ".manifest",
+        ".editorconfig",
+        ".gitattributes",
+        ".gitignore",
+    }
+    for dirpath, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [d for d in dirnames if d not in skip_dirs and not d.endswith(".egg-info")]
+        for name in filenames:
+            ext = os.path.splitext(name)[1]
+            base = name
