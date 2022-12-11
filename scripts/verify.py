@@ -120,3 +120,22 @@ def check_no_banned_filters():
     for path in _iter_svgs():
         text = _read(path)
         for banned in BANNED_SVG_FILTERS:
+            if banned in text:
+                failures.append("{0}: contains {1}".format(os.path.relpath(path, ROOT), banned))
+    return failures
+
+
+def check_no_double_hyphen_in_comments():
+    """Check 3: no XML comment in any .svg contains the illegal `--` sequence."""
+    failures = []
+    comment_re = re.compile(r"<!--(.*?)-->", re.DOTALL)
+    for path in _iter_svgs():
+        text = _read(path)
+        for match in comment_re.finditer(text):
+            if "--" in match.group(1):
+                failures.append(
+                    "{0}: XML comment contains '--'".format(os.path.relpath(path, ROOT))
+                )
+    return failures
+
+
