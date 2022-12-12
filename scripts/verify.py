@@ -194,3 +194,21 @@ def check_svg_accessibility():
         except ET.ParseError:
             failures.append("{0}: does not parse, cannot check a11y".format(rel))
             continue
+        root = tree.getroot()
+        if root.get("viewBox") is None:
+            failures.append("{0}: missing viewBox".format(rel))
+        if root.get("role") != "img":
+            failures.append("{0}: missing role=\"img\"".format(rel))
+        if root.find(".//{0}title".format(SVG_NS)) is None:
+            failures.append("{0}: missing <title>".format(rel))
+        if root.find(".//{0}desc".format(SVG_NS)) is None:
+            failures.append("{0}: missing <desc>".format(rel))
+    return failures
+
+
+def _char_width_em(font_family):
+    """Return the per-character em estimate for a font-family string."""
+    fam = (font_family or "").lower()
+    if "mono" in fam or "consolas" in fam:
+        return EM_PER_CHAR_MONO
+    return EM_PER_CHAR_SANS
