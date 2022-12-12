@@ -175,3 +175,22 @@ def check_readme_no_pandoc_image_attrs():
 def check_readme_no_marketing():
     """Check 6: README.md contains none of the banned marketing terms."""
     failures = []
+    if not os.path.isfile(README):
+        return failures
+    text = _read(README).lower()
+    for term in BANNED_MARKETING:
+        if re.search(r"\b" + re.escape(term) + r"\b", text):
+            failures.append("README.md: banned marketing term '{0}'".format(term))
+    return failures
+
+
+def check_svg_accessibility():
+    """Check 7: every .svg carries viewBox, role=img, a <title>, and a <desc>."""
+    failures = []
+    for path in _iter_svgs():
+        rel = os.path.relpath(path, ROOT)
+        try:
+            tree = ET.parse(path)
+        except ET.ParseError:
+            failures.append("{0}: does not parse, cannot check a11y".format(rel))
+            continue
