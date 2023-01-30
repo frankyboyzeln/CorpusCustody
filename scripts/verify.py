@@ -212,3 +212,21 @@ def _char_width_em(font_family):
     if "mono" in fam or "consolas" in fam:
         return EM_PER_CHAR_MONO
     return EM_PER_CHAR_SANS
+
+
+def _text_edges(elem, inherited_family):
+    """Return (y, left, right) for a <text> element, or None if not placeable."""
+    try:
+        x = float(elem.get("x", "0"))
+        y = float(elem.get("y"))
+    except (TypeError, ValueError):
+        return None
+    font_size = elem.get("font-size")
+    if font_size is None:
+        return None
+    try:
+        size = float(font_size)
+    except ValueError:
+        return None
+    family = elem.get("font-family", inherited_family)
+    text = "".join(elem.itertext())
