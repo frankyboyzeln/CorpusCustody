@@ -230,3 +230,22 @@ def _text_edges(elem, inherited_family):
         return None
     family = elem.get("font-family", inherited_family)
     text = "".join(elem.itertext())
+    width = len(text) * _char_width_em(family) * size
+    anchor = elem.get("text-anchor", "start")
+    if anchor == "middle":
+        left = x - width / 2.0
+    elif anchor == "end":
+        left = x - width
+    else:
+        left = x
+    return (y, left, left + width)
+
+
+def check_no_overlapping_labels():
+    """Check 8: no two text labels sharing a baseline in any .svg overlap."""
+    failures = []
+    for path in _iter_svgs():
+        rel = os.path.relpath(path, ROOT)
+        try:
+            tree = ET.parse(path)
+        except ET.ParseError:
