@@ -249,3 +249,21 @@ def check_no_overlapping_labels():
         try:
             tree = ET.parse(path)
         except ET.ParseError:
+            continue
+        root = tree.getroot()
+        rows = {}
+        # Walk groups so an inherited font-family on <g> is honoured.
+        def walk(node, inherited_family):
+            for child in node:
+                tag = child.tag
+                if tag == "{0}text".format(SVG_NS):
+                    fam = child.get("font-family", inherited_family)
+                    edges = _text_edges(child, fam)
+                    if edges is not None:
+                        y, left, right = edges
+                        rows.setdefault(round(y), []).append((left, right, "".join(child.itertext())))
+                elif tag == "{0}g".format(SVG_NS):
+                    walk(child, child.get("font-family", inherited_family))
+                else:
+                    walk(child, inherited_family)
+
