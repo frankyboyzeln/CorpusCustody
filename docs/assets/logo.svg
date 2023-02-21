@@ -1,3 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="t d" width="240" height="240">
   <!--
     Palette reason: the subject is custody of a corpus, a gate that either lets a
+    set through or holds it. Slate (#334155) is the neutral body of the wordmark.
+    The single accent, amber (#b45309), marks the "custody" morpheme: the part
+    that decides. Two colours plus neutrals, accent used in exactly one place.
+    No gradient, no glow, flat fills only.
+    Mark: a literal 3-record gate. Three record blocks feed one gate bar; the
+    gate is drawn open (a gap) to show it is a pass/hold decision point.
