@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" role="img" aria-labelledby="t d" width="560" height="400">
+  <!--
+    Palette reason: same custody subject as the logo. Slate (#334155) is the
+    data ink for filled obligation cells and labels. The single accent, amber
+    (#b45309), marks the UNKNOWN row, the one thing a reader must notice because
+    it blocks every purpose. Two colours plus neutral grid lines (#cbd5e1) and
+    white. Flat fills, no gradient, no glow, no blur.
+
+    Source of numbers: the "n" column and every filled cell come from running
+    `python -m corpuscustody resolve` over samples/permissive.manifest,
+    samples/sharealike.manifest, and samples/unknown.manifest in this repo, then
