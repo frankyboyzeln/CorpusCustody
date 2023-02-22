@@ -36,3 +36,12 @@
 
   <!--
     Rows. Row height 32, first row baseline area starts at y=62.
+    Cell mark: a filled 16x16 rounded rect centred in the column when the
+    obligation applies. Column centres: attrib 208, share 272, non 336,
+    no_deriv 400, unknown 464. Cell x = centre-8.
+  -->
+
+  <!-- MIT n=3 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="78">MIT</text><text x="140" y="78" text-anchor="middle">3</text>
+    <rect x="200" y="66" width="16" height="16" rx="3" fill="#334155"/>
