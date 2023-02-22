@@ -27,3 +27,12 @@
     <text x="336" y="34" text-anchor="middle">non</text>
     <text x="336" y="46" text-anchor="middle">comm</text>
     <text x="400" y="34" text-anchor="middle">no</text>
+    <text x="400" y="46" text-anchor="middle">deriv</text>
+    <text x="464" y="40" text-anchor="middle">unknown</text>
+  </g>
+
+  <!-- Header underline -->
+  <line x1="16" y1="54" x2="496" y2="54" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!--
+    Rows. Row height 32, first row baseline area starts at y=62.
