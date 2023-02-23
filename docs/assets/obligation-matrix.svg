@@ -54,3 +54,12 @@
   </g>
 
   <!-- CC-BY-4.0 n=2 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="142">CC-BY-4.0</text><text x="140" y="142" text-anchor="middle">2</text>
+    <rect x="200" y="130" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- BSD-3-Clause n=1 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="174">BSD-3-Clause</text><text x="140" y="174" text-anchor="middle">1</text>
+    <rect x="200" y="162" width="16" height="16" rx="3" fill="#334155"/>
