@@ -72,3 +72,12 @@
 
   <!-- CC-BY-SA-4.0 n=1 : attribution, share_alike -->
   <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="238">CC-BY-SA-4.0</text><text x="140" y="238" text-anchor="middle">1</text>
+    <rect x="200" y="226" width="16" height="16" rx="3" fill="#334155"/>
+    <rect x="264" y="226" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- GPL-3.0-only n=1 : attribution, share_alike -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="270">GPL-3.0-only</text><text x="140" y="270" text-anchor="middle">1</text>
+    <rect x="200" y="258" width="16" height="16" rx="3" fill="#334155"/>
