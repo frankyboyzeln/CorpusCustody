@@ -10,3 +10,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `gate` now accepts `--out` to write a cleared manifest on a pass.
 
 ## [0.7.0] - 2026-09-02
+
