@@ -13,3 +13,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - Line-oriented dataset manifest parser (`corpuscustody.manifest`) with
+  1-based line-number errors.
