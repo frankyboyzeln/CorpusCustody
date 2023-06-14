@@ -86,3 +86,19 @@ UNKNOWN = License(
 
 
 def known_identifiers() -> List[str]:
+    """Return the sorted list of SPDX identifiers in the table."""
+    return sorted(_TABLE)
+
+
+def resolve(spdx_id: str) -> License:
+    """Resolve an SPDX identifier to a License.
+
+    An empty, missing, or unrecognised identifier resolves to UNKNOWN rather
+    than to anything permissive. This is deliberate: unknown provenance is a
+    finding, not a default pass.
+    """
+    key = (spdx_id or "").strip()
+    if not key:
+        return UNKNOWN
+    if key == "UNKNOWN":
+        return UNKNOWN
