@@ -16,3 +16,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   1-based line-number errors.
 - Offline SPDX obligation table for common identifiers
   (`corpuscustody.spdx`), covering MIT, Apache-2.0, BSD-3-Clause, GPL-2.0,
+  GPL-3.0, LGPL, MPL-2.0, CC-BY-*, and CC0.
