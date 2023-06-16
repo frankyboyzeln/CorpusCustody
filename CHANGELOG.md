@@ -15,3 +15,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Line-oriented dataset manifest parser (`corpuscustody.manifest`) with
   1-based line-number errors.
 - Offline SPDX obligation table for common identifiers
+  (`corpuscustody.spdx`), covering MIT, Apache-2.0, BSD-3-Clause, GPL-2.0,
