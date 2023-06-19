@@ -20,3 +20,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Pairwise and set-level compatibility resolution against a declared purpose
   (`internal`, `commercial`, `redistribute`) in `corpuscustody.compat`.
 - Gate that refuses when any record's provenance is unknown and writes a
+  cleared manifest only on pass (`corpuscustody.gate`).
