@@ -25,3 +25,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   (`corpuscustody.cli`).
 - Line oriented report rendering (`corpuscustody.report`).
 - Sample manifests covering the permissive, share-alike, and unknown cases.
+
