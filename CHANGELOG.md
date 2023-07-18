@@ -23,3 +23,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   cleared manifest only on pass (`corpuscustody.gate`).
 - CLI subcommands: `resolve`, `gate`, `report`, `version`
   (`corpuscustody.cli`).
+- Line oriented report rendering (`corpuscustody.report`).
