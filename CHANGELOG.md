@@ -27,3 +27,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Sample manifests covering the permissive, share-alike, and unknown cases.
 
 ## [0.6.0] - 2025-11-18
+
