@@ -28,3 +28,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.6.0] - 2025-11-18
 
+### Added
