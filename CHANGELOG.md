@@ -34,3 +34,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Notes collection: attribution, copyleft, and share-alike obligations are
   surfaced as notes next to each record.
 
+## [0.5.0] - 2024-06-21
