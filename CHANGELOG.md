@@ -31,3 +31,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - `report` subcommand printing the combined resolve + gate output with a
   per-record obligation list and a trailing summary.
+- Notes collection: attribution, copyleft, and share-alike obligations are
