@@ -37,3 +37,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [0.5.0] - 2024-06-21
 
 ### Added
+- Purpose-aware compatibility: a permissive pair can pass `internal` and
