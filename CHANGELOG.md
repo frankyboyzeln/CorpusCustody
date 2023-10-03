@@ -40,3 +40,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Purpose-aware compatibility: a permissive pair can pass `internal` and
   `commercial` but refuse `redistribute` when a share-alike record joins the
   set.
+
