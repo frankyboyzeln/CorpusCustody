@@ -44,3 +44,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [0.4.0] - 2023-08-09
 
 ### Added
+- Unknown-provenance rule: a record whose license identifier is not in the
