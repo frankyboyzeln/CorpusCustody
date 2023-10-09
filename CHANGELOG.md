@@ -47,3 +47,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Unknown-provenance rule: a record whose license identifier is not in the
   SPDX table makes the gate refuse with a distinct `UNKNOWN_LICENSE` finding.
 
+## [0.3.0] - 2022-09-04
