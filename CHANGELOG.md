@@ -48,3 +48,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   SPDX table makes the gate refuse with a distinct `UNKNOWN_LICENSE` finding.
 
 ## [0.3.0] - 2022-09-04
+
