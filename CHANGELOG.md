@@ -51,3 +51,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - Set-level resolution: the gate now evaluates the whole manifest, not
+  record pairs, so three compatible records that pairwise pass but jointly
