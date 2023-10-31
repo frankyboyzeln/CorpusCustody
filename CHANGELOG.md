@@ -58,3 +58,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - Pairwise compatibility table for the initial identifier set.
+- First `gate` prototype with `--purpose` and a pass/refuse decision.
