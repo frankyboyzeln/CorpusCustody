@@ -6,3 +6,6 @@
     that decides. Two colours plus neutrals, accent used in exactly one place.
     No gradient, no glow, flat fills only.
     Mark: a literal 3-record gate. Three record blocks feed one gate bar; the
+    gate is drawn open (a gap) to show it is a pass/hold decision point.
+  -->
+  <title id="t">corpuscustody wordmark</title>
