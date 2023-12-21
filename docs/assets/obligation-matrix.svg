@@ -30,3 +30,10 @@
     <text x="400" y="46" text-anchor="middle">deriv</text>
     <text x="464" y="40" text-anchor="middle">unknown</text>
   </g>
+
+  <!-- Header underline -->
+  <line x1="16" y1="54" x2="496" y2="54" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!--
+    Rows. Row height 32, first row baseline area starts at y=62.
+    Cell mark: a filled 16x16 rounded rect centred in the column when the
