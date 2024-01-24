@@ -234,3 +234,37 @@ records into a commercial release. Three findings, and the process exits 1.
 
 ```
 python -m corpuscustody gate samples/sharealike.manifest --purpose commercial
+```
+
+```
+purpose: commercial
+records: 5
+decision: REFUSE
+findings: 3
+  rec-1002 | CC-BY-SA-4.0 | share_alike: share-alike terms attach to the combined set
+  rec-1004 | CC-BY-NC-4.0 | non_commercial: non-commercial license, commercial use blocked
+  rec-1005 | GPL-3.0-only | share_alike: share-alike terms attach to the combined set
+notes: 5
+  rec-1001 | MIT | attribution: attribution must be preserved
+  rec-1002 | CC-BY-SA-4.0 | attribution: attribution must be preserved
+  rec-1003 | Apache-2.0 | attribution: attribution must be preserved
+  rec-1004 | CC-BY-NC-4.0 | attribution: attribution must be preserved
+  rec-1005 | GPL-3.0-only | attribution: attribution must be preserved
+```
+
+### sharealike.manifest, internal and redistribute: PASS
+
+The exact same records pass for `internal` (share-alike and non-commercial do
+not block internal use, leaving the five attribution notes) and for
+`redistribute` (a PASS with seven notes, where the two share-alike obligations
+become notes rather than the commercial findings above). Only the declared
+purpose changed; the records did not.
+
+### unknown.manifest, internal: REFUSE, 2 findings
+
+Two records resolve to `UNKNOWN`, one from an empty license field (`rec-2003`)
+and one from the explicit token (`rec-2005`). Even for the most permissive
+purpose, the gate refuses.
+
+```
+python -m corpuscustody gate samples/unknown.manifest --purpose internal
