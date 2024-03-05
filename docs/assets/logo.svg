@@ -2,31 +2,3 @@
   <!--
     Palette reason: the subject is custody of a corpus, a gate that either lets a
     set through or holds it. Slate (#334155) is the neutral body of the wordmark.
-    The single accent, amber (#b45309), marks the "custody" morpheme: the part
-    that decides. Two colours plus neutrals, accent used in exactly one place.
-    No gradient, no glow, flat fills only.
-    Mark: a literal 3-record gate. Three record blocks feed one gate bar; the
-    gate is drawn open (a gap) to show it is a pass/hold decision point.
-  -->
-  <title id="t">corpuscustody wordmark</title>
-  <desc id="d">The name corpuscustody with the custody half in amber, above a mark of three record blocks passing through a gate bar.</desc>
-  <rect x="0" y="0" width="240" height="240" fill="#ffffff"/>
-
-  <!-- Mark: three record blocks on the left, a gate bar they pass through -->
-  <g>
-    <rect x="40" y="60" width="24" height="16" rx="3" fill="#334155"/>
-    <rect x="40" y="84" width="24" height="16" rx="3" fill="#334155"/>
-    <rect x="40" y="108" width="24" height="16" rx="3" fill="#334155"/>
-    <!-- connectors from blocks to the gate -->
-    <line x1="64" y1="68" x2="120" y2="68" stroke="#334155" stroke-width="1"/>
-    <line x1="64" y1="92" x2="120" y2="92" stroke="#334155" stroke-width="1"/>
-    <line x1="64" y1="116" x2="120" y2="116" stroke="#334155" stroke-width="1"/>
-    <!-- gate bar, drawn with an open gap: the decision point -->
-    <rect x="120" y="52" width="10" height="26" rx="3" fill="#b45309"/>
-    <rect x="120" y="98" width="10" height="34" rx="3" fill="#b45309"/>
-    <!-- cleared record passing beyond the gate -->
-    <rect x="164" y="84" width="24" height="16" rx="3" fill="#334155"/>
-    <line x1="130" y1="92" x2="164" y2="92" stroke="#334155" stroke-width="1"/>
-  </g>
-
-  <!-- Wordmark: colour split at the compound boundary corpus | custody -->
