@@ -129,3 +129,25 @@ class SetResult:
     @property
     def findings(self) -> List[Issue]:
         return [i for i in self.issues if i.severity == FINDING]
+
+    @property
+    def notes(self) -> List[Issue]:
+        return [i for i in self.issues if i.severity == NOTE]
+
+    @property
+    def clear(self) -> bool:
+        """True when there are no blocking findings."""
+        return not self.findings
+
+
+def evaluate(records: List[Record], purpose: str) -> SetResult:
+    """Evaluate a set of records against a purpose.
+
+    Issues are emitted in record order, then in obligation order, so output is
+    deterministic.
+    """
+    key = check_purpose(purpose)
+    all_issues: List[Issue] = []
+    for record in records:
+        lic = resolve(record.spdx_id)
+        all_issues.extend(issues_for_license(record.record_id, lic, key))
