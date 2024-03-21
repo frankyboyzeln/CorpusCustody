@@ -17,3 +17,6 @@
     <rect x="40" y="60" width="24" height="16" rx="3" fill="#334155"/>
     <rect x="40" y="84" width="24" height="16" rx="3" fill="#334155"/>
     <rect x="40" y="108" width="24" height="16" rx="3" fill="#334155"/>
+    <!-- connectors from blocks to the gate -->
+    <line x1="64" y1="68" x2="120" y2="68" stroke="#334155" stroke-width="1"/>
+    <line x1="64" y1="92" x2="120" y2="92" stroke="#334155" stroke-width="1"/>
