@@ -20,3 +20,6 @@
     <!-- connectors from blocks to the gate -->
     <line x1="64" y1="68" x2="120" y2="68" stroke="#334155" stroke-width="1"/>
     <line x1="64" y1="92" x2="120" y2="92" stroke="#334155" stroke-width="1"/>
+    <line x1="64" y1="116" x2="120" y2="116" stroke="#334155" stroke-width="1"/>
+    <!-- gate bar, drawn with an open gap: the decision point -->
+    <rect x="120" y="52" width="10" height="26" rx="3" fill="#b45309"/>
