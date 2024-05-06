@@ -200,3 +200,37 @@ That conservatism is deliberate and not adjustable by a flag.
 
 Below are the real decisions for each of the three sample manifests, captured by
 running the CLI in this repository. The manifests are described in
+[samples/README.md](samples/README.md); they are hand-authored test vectors, not
+scraped data.
+
+### permissive.manifest, commercial: PASS, 0 findings
+
+Five permissive records, attribution at most. It clears for commercial with four
+attribution notes and no findings.
+
+```
+python -m corpuscustody gate samples/permissive.manifest --purpose commercial
+```
+
+```
+purpose: commercial
+records: 5
+decision: PASS
+findings: 0
+notes: 4
+  rec-0001 | MIT | attribution: attribution must be preserved
+  rec-0002 | Apache-2.0 | attribution: attribution must be preserved
+  rec-0004 | BSD-3-Clause | attribution: attribution must be preserved
+  rec-0005 | CC-BY-4.0 | attribution: attribution must be preserved
+```
+
+Note that `rec-0003` (CC0-1.0) produces no note at all: CC0 carries no
+obligations, so it is silent.
+
+### sharealike.manifest, commercial: REFUSE, 3 findings
+
+The same set that is fine internally mixes share-alike and non-commercial
+records into a commercial release. Three findings, and the process exits 1.
+
+```
+python -m corpuscustody gate samples/sharealike.manifest --purpose commercial
