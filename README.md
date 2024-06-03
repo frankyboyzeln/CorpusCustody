@@ -268,3 +268,37 @@ purpose, the gate refuses.
 
 ```
 python -m corpuscustody gate samples/unknown.manifest --purpose internal
+```
+
+```
+purpose: internal
+records: 5
+decision: REFUSE
+findings: 2
+  rec-2003 | UNKNOWN | unknown: provenance unknown, cannot clear
+  rec-2005 | UNKNOWN | unknown: provenance unknown, cannot clear
+notes: 7
+  rec-2001 | MIT | attribution: attribution must be preserved
+  rec-2002 | CC-BY-4.0 | attribution: attribution must be preserved
+  rec-2003 | UNKNOWN | attribution: attribution must be preserved
+  rec-2003 | UNKNOWN | no_derivatives: no-derivatives license, transformation blocked
+  rec-2004 | Apache-2.0 | attribution: attribution must be preserved
+  rec-2005 | UNKNOWN | attribution: attribution must be preserved
+  rec-2005 | UNKNOWN | no_derivatives: no-derivatives license, transformation blocked
+```
+
+The `UNKNOWN` records also emit `no_derivatives` notes for internal, because the
+sentinel carries every obligation and `no_derivatives` is a note under internal.
+
+## Manifest format field by field
+
+A manifest is a UTF-8 text file, one record per line. Blank lines and lines whose
+first non-space character is `#` are ignored, so manifests carry comments and
+stay diffable. Each record line has exactly three pipe-separated fields.
+
+```
+record_id | spdx_id | source
+```
+
+| Field       | Position | Required | Meaning                                                              |
+| ----------- | -------- | -------- | -------------------------------------------------------------------- |
