@@ -65,3 +65,10 @@
     <rect x="200" y="162" width="16" height="16" rx="3" fill="#334155"/>
   </g>
 
+  <!-- CC0-1.0 n=1 : none -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="206">CC0-1.0</text><text x="140" y="206" text-anchor="middle">1</text>
+  </g>
+
+  <!-- CC-BY-SA-4.0 n=1 : attribution, share_alike -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
