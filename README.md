@@ -63,3 +63,37 @@ set PYTHONPATH=src
 python -m corpuscustody version
 ```
 
+```
+corpuscustody 0.1.0
+```
+
+The `set PYTHONPATH=src` form is the Windows shell. On a POSIX shell use
+`PYTHONPATH=src python -m corpuscustody version`.
+
+## Commands
+
+Four subcommands. All read a manifest; `gate` and `report` also require a
+declared `--purpose`.
+
+| Command   | Purpose                                            | Requires `--purpose` |
+| --------- | -------------------------------------------------- | -------------------- |
+| `resolve` | parse a manifest, print each record's license      | no                   |
+| `gate`    | run the pass or refuse decision for a purpose      | yes                  |
+| `report`  | combined resolve view then gate view               | yes                  |
+| `version` | print the version                                  | no                   |
+
+Run with no subcommand and it prints help and exits 2:
+
+```
+python -m corpuscustody
+```
+
+```
+usage: corpuscustody [-h] {resolve,gate,report,version} ...
+
+Training-data license and provenance gate.
+
+positional arguments:
+  {resolve,gate,report,version}
+    resolve             parse a manifest and resolve each record's license
+    gate                run the pass or refuse decision for a declared purpose
