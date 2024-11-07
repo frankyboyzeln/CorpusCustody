@@ -9,3 +9,6 @@
     gate is drawn open (a gap) to show it is a pass/hold decision point.
   -->
   <title id="t">corpuscustody wordmark</title>
+  <desc id="d">The name corpuscustody with the custody half in amber, above a mark of three record blocks passing through a gate bar.</desc>
+  <rect x="0" y="0" width="240" height="240" fill="#ffffff"/>
+
