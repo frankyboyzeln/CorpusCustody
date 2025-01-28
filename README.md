@@ -97,3 +97,37 @@ positional arguments:
   {resolve,gate,report,version}
     resolve             parse a manifest and resolve each record's license
     gate                run the pass or refuse decision for a declared purpose
+    report              print the combined resolve and gate report
+    version             print the version
+
+options:
+  -h, --help            show this help message and exit
+```
+
+`--purpose` accepts exactly `internal`, `commercial`, or `redistribute`. It is
+case-insensitive: `Commercial` normalises to `commercial`. Pass `--out PATH` to
+`gate` to write a cleared manifest on PASS.
+
+## The obligation model
+
+Every license in the offline table maps to a set of obligations. An obligation
+is a mechanical yes or no fact about the license, not a judgement. These five
+obligations are the entire vocabulary the tool reasons over.
+
+| Obligation       | Key              | What it means                                                  |
+| ---------------- | ---------------- | -------------------------------------------------------------- |
+| Attribution      | `attribution`    | attribution or notices must be preserved                       |
+| Share alike      | `share_alike`    | derivatives or the combined work must carry the same license   |
+| Non commercial   | `non_commercial` | commercial use is not permitted                                |
+| No derivatives   | `no_derivatives` | modified or derived works are not permitted                    |
+| Unknown          | `unknown`        | provenance or license is not established                       |
+
+The `unknown` obligation is special. It is never inferred as permissive. A
+record whose license cannot be resolved is treated as carrying every restrictive
+obligation at once, so it can never quietly pass a gate. That is defined once, in
+`src/corpuscustody/spdx.py`, as the `UNKNOWN` sentinel with all five flags set.
+
+## Purposes and why they differ
+
+The same set can be safe for one use and unsafe for another. The purpose you
+declare changes which obligations block and which are only noted.
