@@ -16,3 +16,10 @@
   <title id="t">License by obligation matrix</title>
   <desc id="d">A grid of nine resolved licenses by five obligations. A filled cell means the license carries that obligation. The left column n is the record count per license summed over the three sample manifests. The UNKNOWN row is marked in amber because it carries every obligation and blocks every purpose.</desc>
   <rect x="0" y="0" width="560" height="400" fill="#ffffff"/>
+
+  <!-- Column headers. Origin grid: x0=176 for first obligation column, step 64. -->
+  <g font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#334155">
+    <text x="16" y="40">license</text>
+    <text x="140" y="40" text-anchor="middle">n</text>
+    <text x="208" y="34" text-anchor="middle">attrib</text>
+    <text x="272" y="34" text-anchor="middle">share</text>
