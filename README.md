@@ -405,3 +405,37 @@ row is amber because it is the row a reader must not miss: every obligation cell
 is filled, so it blocks every purpose.
 
 ## Limitations, expanded
+
+This is a mechanical obligation check, not legal advice. It matches SPDX
+identifiers against a short hand-maintained table and applies fixed rules. It
+does not:
+
+- read or interpret full license texts, only identifiers,
+- cover every SPDX identifier, only the common ones in
+  `src/corpuscustody/spdx.py`,
+- model license version differences beyond the identifiers listed,
+- handle dual licensing, exceptions, or per-file license expressions,
+- decide whether attribution or share-alike terms are actually satisfied
+  downstream, only that they attach,
+- distinguish jurisdictions, or account for fair use, database rights, or
+  contractual terms that sit on top of the license,
+- replace review by a person qualified to make licensing decisions.
+
+Treat a PASS as "no mechanical conflict was found in the table," not as a legal
+clearance. The obligation rules are deliberately conservative, so unknown
+provenance always blocks rather than defaulting to permissive. If the table does
+not contain an identifier, that identifier resolves to `UNKNOWN` and blocks; the
+correct fix is to add the identifier to `spdx.py` after a person has verified its
+obligations, not to loosen the default. Every result is input to a human
+decision, never a substitute for one.
+
+## Design decisions
+
+Two choices shape everything else. Each is stated with the alternative rejected
+and why.
+
+**An offline table, not a license API.** Obligations live in a small
+hand-maintained dict in `spdx.py`. The rejected alternative was to resolve
+identifiers over the network against a live service. That was rejected because a
+gate that reaches the network is non-deterministic (the same manifest could pass
+today and refuse next week), because a network dependency is a supply-chain and
