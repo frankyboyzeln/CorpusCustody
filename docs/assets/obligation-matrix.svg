@@ -9,3 +9,10 @@
     Source of numbers: the "n" column and every filled cell come from running
     `python -m corpuscustody resolve` over samples/permissive.manifest,
     samples/sharealike.manifest, and samples/unknown.manifest in this repo, then
+    summing the per-license record counts. Totals: MIT 3, Apache-2.0 3,
+    CC-BY-4.0 2, UNKNOWN 2, BSD-3-Clause 1, CC0-1.0 1, CC-BY-SA-4.0 1,
+    GPL-3.0-only 1, CC-BY-NC-4.0 1. Sum 15 records across three manifests.
+  -->
+  <title id="t">License by obligation matrix</title>
+  <desc id="d">A grid of nine resolved licenses by five obligations. A filled cell means the license carries that obligation. The left column n is the record count per license summed over the three sample manifests. The UNKNOWN row is marked in amber because it carries every obligation and blocks every purpose.</desc>
+  <rect x="0" y="0" width="560" height="400" fill="#ffffff"/>
