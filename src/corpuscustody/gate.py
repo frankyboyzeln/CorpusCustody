@@ -70,3 +70,17 @@ def cleared_manifest_lines(records: List[Record], purpose: str) -> List[str]:
     lines.append("# record_id | spdx_id | cleared_for")
     for record in records:
         lic = resolve(record.spdx_id)
+        lines.append(
+            "{0} | {1} | {2}".format(record.record_id, lic.spdx_id, purpose)
+        )
+    return lines
+
+
+def write_cleared_manifest(path: str, records: List[Record], purpose: str) -> None:
+    """Write a cleared manifest to disk with LF line endings.
+
+    Uses a fixed "\\n" terminator regardless of platform so identical input
+    produces byte-identical output.
+    """
+    body = "\n".join(cleared_manifest_lines(records, purpose)) + "\n"
+    with open(path, "w", encoding="utf-8", newline="") as handle:
