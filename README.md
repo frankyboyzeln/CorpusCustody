@@ -537,6 +537,16 @@ No dates. In rough priority order:
 - a machine-readable output mode (JSON) alongside the current line format for
   tools that would rather parse than diff.
 
+## Reporting issues
+
+Bugs and surprising gate decisions are both welcome as issues. Please include
+the manifest (or a minimised version of it), the `--purpose` used, and the
+expected versus actual decision. Because the gate is deterministic, a wrong
+decision should reproduce exactly on the same input, which makes the manifest
+plus purpose a complete bug report. Security concerns should be reported
+privately rather than in a public issue; the repository security policy lists
+the contact channel.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
