@@ -302,3 +302,38 @@ record_id | spdx_id | source
 
 | Field       | Position | Required | Meaning                                                              |
 | ----------- | -------- | -------- | -------------------------------------------------------------------- |
+| `record_id` | 1        | yes      | free text identifier for the record; an empty value is a parse error |
+| `spdx_id`   | 2        | no       | SPDX identifier; empty or unrecognised resolves to `UNKNOWN`         |
+| `source`    | 3        | no       | free text provenance note; not validated                            |
+
+Surrounding whitespace on each field is stripped. Parsing is deliberately dumb:
+`spdx_id` is read but not validated at parse time, so parsing and license policy
+stay in separate modules. Validation happens later, at resolve time. A line with
+anything other than three fields raises a `ManifestError` and the process exits
+2. A real sample manifest, comment lines and all:
+
+```
+# permissive.manifest
+rec-0001 | MIT | github.com/example/tokenizer
+rec-0002 | Apache-2.0 | github.com/example/corpus-tools
+rec-0003 | CC0-1.0 | zenodo.org/record/000001
+rec-0004 | BSD-3-Clause | github.com/example/textnorm
+rec-0005 | CC-BY-4.0 | data.example.org/news-2020
+```
+
+## Output format and the cleared manifest
+
+The `resolve` view lists every record with its resolved license and its active
+obligations (or `none`), then a license count summary sorted by SPDX identifier.
+
+```
+python -m corpuscustody resolve samples/sharealike.manifest
+```
+
+```
+records: 5
+  rec-1001 | MIT | attribution
+  rec-1002 | CC-BY-SA-4.0 | attribution,share_alike
+  rec-1003 | Apache-2.0 | attribution
+  rec-1004 | CC-BY-NC-4.0 | attribution,non_commercial
+  rec-1005 | GPL-3.0-only | attribution,share_alike
