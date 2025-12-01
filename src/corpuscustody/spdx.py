@@ -102,3 +102,4 @@ def resolve(spdx_id: str) -> License:
         return UNKNOWN
     if key == "UNKNOWN":
         return UNKNOWN
+    return _TABLE.get(key, UNKNOWN)
