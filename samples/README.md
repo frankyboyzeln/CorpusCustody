@@ -16,3 +16,13 @@ resolve against the offline table in `src/corpuscustody/spdx.py`.
 - `unknown.manifest`: five records where two have unknown provenance, one via an
   empty license field and one via an explicit UNKNOWN. The gate refuses these
   for every purpose rather than assuming permissive.
+
+## Extending the fixtures
+
+Each manifest here is a real gate fixture: permissive records only, a 
+share-alike record that flips the commercial decision, and an unknown 
+identifier that must refuse. To add a case, keep the format stable (one 
+record per line, SPDX identifiers exactly as in the table in `spdx.py`) 
+and add a matching assertion in `tests/` so the gate behaviour is pinned 
+for the new case. The `unknown.manifest` file is the one to extend when 
+testing a newly added SPDX identifier.
