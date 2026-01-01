@@ -98,3 +98,26 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if args.command == "resolve":
         _emit(render_resolve(records))
+        return OK
+
+    try:
+        gate = decide(records, args.purpose)
+    except PurposeError as exc:
+        print("error: {0}".format(exc), file=sys.stderr)
+        return USAGE_ERROR
+
+    if args.command == "gate":
+        _emit(render_gate(gate))
+        if gate.refused:
+            return REFUSED
+        if args.out:
+            write_cleared_manifest(args.out, records, gate.purpose)
+            print("cleared manifest written: {0}".format(args.out))
+        return OK
+
+    if args.command == "report":
+        _emit(render_report(records, gate))
+        return REFUSED if gate.refused else OK
+
+    parser.print_help()
+    return USAGE_ERROR
