@@ -60,3 +60,11 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Pairwise compatibility table for the initial identifier set.
 - First `gate` prototype with `--purpose` and a pass/refuse decision.
 
+## [0.1.0] - 2021-03-11
+
+### Added
+- The custody problem in prose: training corpora mix licenses, and nobody
+  can say what the joint obligations are.
+- Initial package skeleton, README, and the MIT licence.
+- A single sample manifest and a hand-written resolve script.
+# draft note 1
