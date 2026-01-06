@@ -182,3 +182,36 @@ class CliTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn("decision: REFUSE", out)
 
+    def test_sharealike_commercial_refuses(self):
+        code, out, _ = self._run(
+            ["gate", self._sample("sharealike.manifest"), "--purpose", "commercial"]
+        )
+        self.assertEqual(code, 1)
+        self.assertIn("share_alike", out)
+
+    def test_missing_manifest_usage_error(self):
+        code, _, err = self._run(["resolve", "does-not-exist.manifest"])
+        self.assertEqual(code, 2)
+        self.assertIn("not found", err)
+
+    def test_gate_out_written_on_pass(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out_path = os.path.join(tmp, "cleared.manifest")
+            code, out, _ = self._run(
+                [
+                    "gate",
+                    self._sample("permissive.manifest"),
+                    "--purpose",
+                    "commercial",
+                    "--out",
+                    out_path,
+                ]
+            )
+            self.assertEqual(code, 0)
+            self.assertTrue(os.path.exists(out_path))
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+# draft note 4
