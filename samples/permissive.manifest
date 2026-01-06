@@ -3,3 +3,8 @@
 # Fields: record_id | spdx_id | source
 rec-0001 | MIT | github.com/example/tokenizer
 rec-0002 | Apache-2.0 | github.com/example/corpus-tools
+rec-0003 | CC0-1.0 | zenodo.org/record/000001
+rec-0004 | BSD-3-Clause | github.com/example/textnorm
+rec-0005 | CC-BY-4.0 | data.example.org/news-2020
+
+# draft note 6
