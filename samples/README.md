@@ -10,3 +10,11 @@ resolve against the offline table in `src/corpuscustody/spdx.py`.
   are attribution notes.
 
 - `sharealike.manifest`: five records that pass internal use but conflict with a
+  commercial purpose. It mixes a share-alike corpus (CC-BY-SA-4.0, GPL-3.0-only)
+  and a non-commercial corpus (CC-BY-NC-4.0) into the set.
+
+- `unknown.manifest`: five records where two have unknown provenance, one via an
+  empty license field and one via an explicit UNKNOWN. The gate refuses these
+  for every purpose rather than assuming permissive.
+
+# draft note 5
