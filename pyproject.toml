@@ -12,3 +12,9 @@ license = { text = "MIT" }
 authors = [{ name = "the CorpusCustody contributors" }]
 
 [project.scripts]
+corpuscustody = "corpuscustody.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# draft note 3
