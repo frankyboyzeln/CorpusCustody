@@ -23,3 +23,91 @@
     <text x="140" y="40" text-anchor="middle">n</text>
     <text x="208" y="34" text-anchor="middle">attrib</text>
     <text x="272" y="34" text-anchor="middle">share</text>
+    <text x="272" y="46" text-anchor="middle">alike</text>
+    <text x="336" y="34" text-anchor="middle">non</text>
+    <text x="336" y="46" text-anchor="middle">comm</text>
+    <text x="400" y="34" text-anchor="middle">no</text>
+    <text x="400" y="46" text-anchor="middle">deriv</text>
+    <text x="464" y="40" text-anchor="middle">unknown</text>
+  </g>
+
+  <!-- Header underline -->
+  <line x1="16" y1="54" x2="496" y2="54" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!--
+    Rows. Row height 32, first row baseline area starts at y=62.
+    Cell mark: a filled 16x16 rounded rect centred in the column when the
+    obligation applies. Column centres: attrib 208, share 272, non 336,
+    no_deriv 400, unknown 464. Cell x = centre-8.
+  -->
+
+  <!-- MIT n=3 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="78">MIT</text><text x="140" y="78" text-anchor="middle">3</text>
+    <rect x="200" y="66" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- Apache-2.0 n=3 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="110">Apache-2.0</text><text x="140" y="110" text-anchor="middle">3</text>
+    <rect x="200" y="98" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- CC-BY-4.0 n=2 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="142">CC-BY-4.0</text><text x="140" y="142" text-anchor="middle">2</text>
+    <rect x="200" y="130" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- BSD-3-Clause n=1 : attribution -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="174">BSD-3-Clause</text><text x="140" y="174" text-anchor="middle">1</text>
+    <rect x="200" y="162" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- CC0-1.0 n=1 : none -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="206">CC0-1.0</text><text x="140" y="206" text-anchor="middle">1</text>
+  </g>
+
+  <!-- CC-BY-SA-4.0 n=1 : attribution, share_alike -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="238">CC-BY-SA-4.0</text><text x="140" y="238" text-anchor="middle">1</text>
+    <rect x="200" y="226" width="16" height="16" rx="3" fill="#334155"/>
+    <rect x="264" y="226" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- GPL-3.0-only n=1 : attribution, share_alike -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="270">GPL-3.0-only</text><text x="140" y="270" text-anchor="middle">1</text>
+    <rect x="200" y="258" width="16" height="16" rx="3" fill="#334155"/>
+    <rect x="264" y="258" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- CC-BY-NC-4.0 n=1 : attribution, non_commercial -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#334155">
+    <text x="16" y="302">CC-BY-NC-4.0</text><text x="140" y="302" text-anchor="middle">1</text>
+    <rect x="200" y="290" width="16" height="16" rx="3" fill="#334155"/>
+    <rect x="328" y="290" width="16" height="16" rx="3" fill="#334155"/>
+  </g>
+
+  <!-- UNKNOWN n=2 : all five, amber accent -->
+  <g font-family="&quot;Cascadia Mono&quot;, &quot;JetBrains Mono&quot;, Consolas, &quot;DejaVu Sans Mono&quot;, monospace" font-size="12" fill="#b45309">
+    <text x="16" y="334">UNKNOWN</text><text x="140" y="334" text-anchor="middle">2</text>
+    <rect x="200" y="322" width="16" height="16" rx="3" fill="#b45309"/>
+    <rect x="264" y="322" width="16" height="16" rx="3" fill="#b45309"/>
+    <rect x="328" y="322" width="16" height="16" rx="3" fill="#b45309"/>
+    <rect x="392" y="322" width="16" height="16" rx="3" fill="#b45309"/>
+    <rect x="456" y="322" width="16" height="16" rx="3" fill="#b45309"/>
+  </g>
+
+  <!-- Legend -->
+  <g font-family="-apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif" font-size="11" fill="#334155">
+    <rect x="16" y="360" width="16" height="16" rx="3" fill="#334155"/>
+    <text x="40" y="372">obligation applies</text>
+    <rect x="176" y="360" width="16" height="16" rx="3" fill="#b45309"/>
+    <text x="200" y="372">UNKNOWN blocks every purpose, 2 records here</text>
+  </g>
+</svg>
+
+# draft note 11
