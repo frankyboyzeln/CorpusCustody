@@ -267,3 +267,49 @@ def check_no_overlapping_labels():
                 else:
                     walk(child, inherited_family)
 
+        walk(root, root.get("font-family"))
+        for y, items in rows.items():
+            items.sort(key=lambda t: t[0])
+            for prev, cur in zip(items, items[1:]):
+                if cur[0] < prev[1] - 1e-6:
+                    failures.append(
+                        "{0}: labels overlap on baseline y={1}: '{2}' and '{3}'".format(
+                            rel, y, prev[2], cur[2]
+                        )
+                    )
+    return failures
+
+
+CHECKS = [
+    ("svg parses as xml", check_svg_parses),
+    ("no banned svg filters", check_no_banned_filters),
+    ("no '--' in svg comments", check_no_double_hyphen_in_comments),
+    ("no em dash in text files", check_no_em_dash),
+    ("readme no pandoc image attrs", check_readme_no_pandoc_image_attrs),
+    ("readme no marketing terms", check_readme_no_marketing),
+    ("svg accessibility metadata", check_svg_accessibility),
+    ("no overlapping svg labels", check_no_overlapping_labels),
+]
+
+
+def main():
+    total_failures = 0
+    for label, func in CHECKS:
+        failures = func()
+        if failures:
+            total_failures += len(failures)
+            print("FAIL {0}".format(label))
+            for detail in failures:
+                print("     {0}".format(detail))
+        else:
+            print("ok   {0}".format(label))
+    print(
+        "verify: {0} checks, {1} failures".format(len(CHECKS), total_failures)
+    )
+    return 1 if total_failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
+# draft note 9
