@@ -84,3 +84,4 @@ def write_cleared_manifest(path: str, records: List[Record], purpose: str) -> No
     """
     body = "\n".join(cleared_manifest_lines(records, purpose)) + "\n"
     with open(path, "w", encoding="utf-8", newline="") as handle:
+        handle.write(body)
