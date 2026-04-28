@@ -17,4 +17,4 @@ corpuscustody = "corpuscustody.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
-# draft note 25
+# draft note 36
