@@ -67,4 +67,4 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   can say what the joint obligations are.
 - Initial package skeleton, README, and the MIT licence.
 - A single sample manifest and a hand-written resolve script.
-# draft note 23
+# draft note 34
