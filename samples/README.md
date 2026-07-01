@@ -16,5 +16,3 @@ resolve against the offline table in `src/corpuscustody/spdx.py`.
 - `unknown.manifest`: five records where two have unknown provenance, one via an
   empty license field and one via an explicit UNKNOWN. The gate refuses these
   for every purpose rather than assuming permissive.
-
-# draft note 5
