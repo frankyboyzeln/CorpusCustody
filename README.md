@@ -540,5 +540,3 @@ No dates. In rough priority order:
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
-# draft note 24
