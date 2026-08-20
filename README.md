@@ -1,4 +1,11 @@
-# <img src="docs/assets/logo.svg" alt="Three record blocks passing through a gate bar, the custody half of the wordmark in amber" width="40" align="top"> corpuscustody
+<div align="center">
+
+<img src="docs/assets/logo.svg" width="160"
+     alt="Three record blocks passing through a gate bar, the custody half of the wordmark in amber" />
+
+# CorpusCustody
+
+</div>
 
 <p align="right">
   <a href="#the-mixing-problem">Problem</a> &middot;
@@ -18,7 +25,7 @@
 > PASS means no conflict was found in that table, not that a lawyer cleared the
 > set. Treat every result as input to a human decision, never as the decision.
 
-corpuscustody is a training-data license and provenance gate. It walks a dataset
+CorpusCustody is a training-data license and provenance gate. It walks a dataset
 manifest, resolves the license of every record against an offline SPDX table,
 and decides whether the combined set is usable for a declared purpose: internal
 research, a commercial product, or redistribution. It flags incompatible
@@ -43,7 +50,7 @@ unlabelled record means you cannot honestly say what you are allowed to do with
 any of it. These conflicts are invisible in a per-record spreadsheet, because the
 danger lives in the combination and the declared use, not in any one row.
 
-corpuscustody makes that combination explicit. You declare what you intend to do
+CorpusCustody makes that combination explicit. You declare what you intend to do
 with the set. It resolves every record, applies the rules a careful reviewer
 would apply, and either clears the set for that purpose or refuses and names the
 records that blocked it, and why.
