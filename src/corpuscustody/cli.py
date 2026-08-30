@@ -38,6 +38,11 @@ def _build_parser() -> argparse.ArgumentParser:
         "resolve", help="parse a manifest and resolve each record's license"
     )
     p_resolve.add_argument("manifest", help="path to a dataset manifest")
+    p_resolve.add_argument(
+        "--out",
+        default=None,
+        help="write the resolved report to this path instead of stdout",
+    )
 
     p_gate = sub.add_parser(
         "gate", help="run the pass or refuse decision for a declared purpose"
@@ -65,14 +70,24 @@ def _build_parser() -> argparse.ArgumentParser:
         choices=PURPOSES,
         help="declared purpose for the combined set",
     )
+    p_report.add_argument(
+        "--out",
+        default=None,
+        help="write the report to this path instead of stdout",
+    )
 
     sub.add_parser("version", help="print the version")
     return parser
 
 
-def _emit(lines: List[str]) -> None:
-    for line in lines:
-        print(line)
+def _emit(lines: List[str], out: Optional[str] = None) -> None:
+    text = "\n".join(lines)
+    if out:
+        with open(out, "w", encoding="utf-8") as fh:
+            fh.write(text + "\n")
+        print("written to {0}".format(out))
+    else:
+        print(text)
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -97,7 +112,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return USAGE_ERROR
 
     if args.command == "resolve":
-        _emit(render_resolve(records))
+        _emit(render_resolve(records), getattr(args, "out", None))
         return OK
 
     try:
@@ -116,7 +131,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return OK
 
     if args.command == "report":
-        _emit(render_report(records, gate))
+        _emit(render_report(records, gate), getattr(args, "out", None))
         return REFUSED if gate.refused else OK
 
     parser.print_help()
