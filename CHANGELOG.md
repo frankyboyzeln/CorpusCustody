@@ -7,6 +7,8 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Added
+- `resolve` and `report` now accept `--out` to write output to a file
+  instead of stdout, matching `gate`.
 - `gate` now accepts `--out` to write a cleared manifest on a pass.
 
 ## [0.7.0] - 2026-09-02
